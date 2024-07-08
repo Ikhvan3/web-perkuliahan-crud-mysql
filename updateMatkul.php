@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Ahmad Fatih Abror - A12.2022.06901</title>
+	<title>Slamet Ikhvan Nurhana Rifki - A12.2022.06882</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="bootstrap-5.1.3/dist/css/bootstrap.min.css">

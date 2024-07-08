@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Ahmad Fatih Abror - A12.2022.06901</title>
+	<title>Slamet Ikhvan Nurhana Rifki - A12.2022.06882</title>
 	<style type="text/css">
 		td{
 			padding: 3px 3px;

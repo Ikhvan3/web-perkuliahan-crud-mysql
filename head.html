@@ -1,10 +1,134 @@
-<div class="menusamping">
-    <h1>SIA ADMINISTRATOR</h1>
-    <a href="home.php">Home</a>
-    <a href="ajaxUpdateMhs.php">Mahasiswa</a>
-    <a href="ajaxUpdateDosen.php">Dosen</a>
-    <a href="ajaxUpdateMatkul.php">Mata Kuliah</a>
-    <a href="ajaxUpdateKultawar.php">Kuliah Tawar</a>
-    <a href="addUser.php">Register User</a>
-    <a href="logout.php">Logout</a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Samping</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            transition: margin-left 0.3s;
+        }
+
+        .menusamping {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #2c3e50;
+            overflow-x: hidden;
+            padding-top: 20px;
+            transition: width 0.3s;
+        }
+
+        .menusamping h1 {
+            padding: 10px;
+            font-size: 18px;
+            color: #ecf0f1;
+            background-color: #34495e;
+            text-align: center;
+            margin: 0;
+        }
+
+        .menusamping a {
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            color: #bdc3c7;
+            display: block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .menusamping a:hover {
+            color: #ecf0f1;
+            background-color: #1abc9c;
+        }
+
+        .utama {
+            margin-left: 200px;
+            font-size: 16px;
+            padding: 20px;
+            transition: margin-left 0.3s;
+        }
+
+        .menusamping.collapsed {
+            width: 0;
+        }
+
+        .utama.collapsed {
+            margin-left: 0;
+        }
+
+        .toggle-btn {
+            position: fixed;
+            top: 20px;
+            left: 210px;
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 2;
+            transition: left 0.3s;
+        }
+
+        .menusamping.collapsed + .toggle-btn {
+            left: 10px;
+        }
+
+        .toggle-btn .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: white;
+            transition: all 0.3s;
+        }
+
+        .menusamping.collapsed + .toggle-btn .bar:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menusamping.collapsed + .toggle-btn .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menusamping.collapsed + .toggle-btn .bar:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+    </style>
+</head>
+<body>
+    <div class="menusamping" id="menusamping">
+        <h1>SIA ADMINISTRATOR</h1>
+        <a href="home.php">Home</a>
+        <a href="ajaxUpdateMhs.php">Mahasiswa</a>
+        <a href="ajaxUpdateDosen.php">Dosen</a>
+        <a href="ajaxUpdateMatkul.php">Mata Kuliah</a>
+        <a href="ajaxUpdateKultawar.php">Kuliah Tawar</a>
+        <a href="addUser.php">Register User</a>
+        <a href="logout.php">Logout</a>
+    </div>
+    <button class="toggle-btn" onclick="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+    
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menusamping');
+            var utama = document.getElementById('utama');
+            menu.classList.toggle('collapsed');
+            utama.classList.toggle('collapsed');
+        }
+    </script>
+</body>
+</html>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Ahmad Fatih Abror - A12.2022.06901</title>
+    <title>Slamet Ikhvan Nurhana Rifki - A12.2022.06882</title>
 
     <style>
         * {
@@ -20,48 +20,45 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: url("images/bg19.jpg");
-            background-size: cover;
+            background: linear-gradient(135deg, #1abc9c, #3498db);
         }
 
-        .wrapper {
-            width: 420px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            color: #fff;
-            border-radius: 10px;
-            padding: 30px 40px;
-        }
-
-        .wrapper h1 {
-            font-size: 36px;
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            width: 400px;
+            padding: 40px 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(15px);
             text-align: center;
         }
 
-        .wrapper .input-box {
+        .container h1 {
+            margin-bottom: 30px;
+            font-size: 28px;
+            color: #ffffff;
+        }
+
+        .input-box {
             position: relative;
-            width: 100%;
-            height: 50px;
-            margin: 30px 0;
+            margin-bottom: 20px;
         }
 
         .input-box input {
             width: 100%;
-            height: 100%;
-            background: transparent;
+            height: 50px;
+            padding: 0 20px;
             border: none;
-            outline: none;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 40px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
             font-size: 16px;
-            color: #fff;
-            padding: 20px 45px 20px 20px;
+            color: #ffffff;
+            transition: background 0.3s ease;
         }
 
-        .input-box input::placeholder {
-            color: #fff;
+        .input-box input:focus {
+            background: rgba(255, 255, 255, 0.2);
+            outline: none;
         }
 
         .input-box i {
@@ -69,57 +66,41 @@
             right: 20px;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 20px;
+            font-size: 18px;
+            color: #ffffff;
         }
 
-        .wrapper .remember-forgot {
-            display: flex;
-            justify-content: space-between;
-            font-size: 14.5px;
-            margin: -15px 0 15px;
-        }
-
-        .remember-forgot label input {
-            accent-color: #fff;
-            margin-right: 3px;
-        }
-
-        .remember-forgot a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .remember-forgot a:hover {
-            text-decoration: underline;
-        }
-
-        .wrapper .btn {
+        .btn {
             width: 100%;
-            height: 45px;
-            background: #fff;
+            height: 50px;
+            background: #ffffff;
             border: none;
-            outline: none;
-            border-radius: 40px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
+            border-radius: 25px;
+            color: #1abc9c;
             font-size: 16px;
-            color: #333;
             font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
-        .wrapper .register-link {
-            font-size: 14.5px;
-            text-align: center;
-            margin: 20px 0 15px;
+        .btn:hover {
+            background: #1abc9c;
+            color: #ffffff;
         }
 
-        .register-link p a {
-            color: #fff;
+        .toggle-link {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #ffffff;
+        }
+
+        .toggle-link a {
+            color: #ffffff;
             text-decoration: none;
             font-weight: 600;
         }
 
-        .register-link p a:hover {
+        .toggle-link a:hover {
             text-decoration: underline;
         }
 
@@ -133,38 +114,40 @@
             justify-content: space-between;
             align-items: center;
             z-index: 100;
+            background: rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
         }
 
         .nav-logo p {
-            font-size: 32px;
-            color: #fff;
-            text-decoration: none;
+            font-size: 24px;
+            color: #ffffff;
             font-weight: 700;
         }
 
         .nav-button button {
             background: transparent;
-            border: 2px solid #fff;
+            border: 2px solid #ffffff;
             outline: none;
-            border-radius: 6px;
+            border-radius: 5px;
             cursor: pointer;
-            font-size: 1.1em;
-            color: #fff;
-            font-weight: 500;
-            padding: 10px 25px;
-            transition: .5s;
+            font-size: 14px;
+            color: #ffffff;
+            font-weight: 600;
+            padding: 10px 20px;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
         .nav-button button:hover {
-            background: #fff;
-            color: #162938;
+            background: #ffffff;
+            color: #1abc9c;
         }
     </style>
 </head>
 <body>
     <nav class="nav">
         <div class="nav-logo">
-            <p>FATIH</p>
+            <p>IKHVAN RIFKI</p>
         </div>
         <div class="nav-button">
             <button id="loginBtn" onclick="showLogin()">Sign In</button>
@@ -172,7 +155,7 @@
         </div>
     </nav>
 
-    <div class="wrapper">
+    <div class="container">
         <form action="login.php" method="post" id="loginForm">
             <h1>Login</h1>
             <div class="input-box">
@@ -181,14 +164,10 @@
             </div>
             <div class="input-box">
                 <input type="password" name="password" placeholder="Password" required>
-                <i class='bx bxs-lock-alt' ></i>
-            </div>
-            <div class="remember-forgot">
-                <label><input type="checkbox" name="remember"> Remember me</label>
-                <a href="#">Forgot password?</a>
+                <i class='bx bxs-lock-alt'></i>
             </div>
             <button type="submit" class="btn">Login</button>
-            <div class="register-link">
+            <div class="toggle-link">
                 <p>Don't have an account? <a href="#" onclick="showRegister()">Register</a></p>
             </div>
         </form>
@@ -216,7 +195,7 @@
                 <i class='bx bx-info-circle'></i>
             </div>
             <button type="submit" class="btn">Register</button>
-            <div class="register-link">
+            <div class="toggle-link">
                 <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
             </div>
         </form>
