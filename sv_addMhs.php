@@ -4,26 +4,35 @@
 require "fungsi.php";
 
 //memindahkan data kiriman dari form ke var biasa
+<<<<<<< HEAD
 $nim=$_POST["nim"] ;
 $nama=$_POST["nama"];
 $email=$_POST["email"];
 $uploadOk=1;
+=======
+$nim = $_POST["nim"];
+$nama = $_POST["nama"];
+$email = $_POST["email"];
+$uploadOk = 1;
+>>>>>>> 3fc7d5f5d34d94ed7132acf7854cea7a7411c973
 
 //Set lokasi dan nama file foto
-$folderupload ="foto/";
+$folderupload = "foto/";
 $fileupload = $folderupload . basename($_FILES['foto']['name']); // foto/A12.2018.05555.jpg
 $filefoto = basename($_FILES['foto']['name']);                  // A12.2018.0555.jpg
 
 //ambil jenis file
-$jenisfilefoto = strtolower(pathinfo($fileupload,PATHINFO_EXTENSION)); //jpg,png,gif
+$jenisfilefoto = strtolower(pathinfo($fileupload, PATHINFO_EXTENSION)); //jpg,png,gif
 
 
 
 
 
 // Hanya file tertentu yang dapat digunakan
-if($jenisfilefoto != "jpg" && $jenisfilefoto != "png" && $jenisfilefoto != "jpeg"
-&& $jenisfilefoto != "gif" ) {
+if (
+    $jenisfilefoto != "jpg" && $jenisfilefoto != "png" && $jenisfilefoto != "jpeg"
+    && $jenisfilefoto != "gif"
+) {
     echo "Maaf, hanya file JPG, JPEG, PNG & GIF yang diperbolehkan<br>";
     $uploadOk = 0;
 }
@@ -32,13 +41,13 @@ if($jenisfilefoto != "jpg" && $jenisfilefoto != "png" && $jenisfilefoto != "jpeg
 
 if ($uploadOk == 0) {
     echo "Maaf, file tidak dapat terupload<br>";
-// jika semua berjalan lancar
+    // jika semua berjalan lancar
 } else {
     if (move_uploaded_file($_FILES["foto"]["tmp_name"], $fileupload)) {
         // Cek apakah NIM sudah ada di database
         $cekNIM = "SELECT * FROM mhs WHERE nim='$nim'";
         $result = mysqli_query($koneksi, $cekNIM);
-        
+
         if (mysqli_num_rows($result) > 0) {
             // Jika NIM sudah ada, tampilkan pesan alert
             echo "<script>
@@ -47,7 +56,7 @@ if ($uploadOk == 0) {
                   </script>";
         } else {
             // Jika NIM belum ada, simpan data
-            $sql = "INSERT INTO mhs VALUES('', '$nim', '$nama', '$email', '$filefoto')";
+            $sql = "INSERT INTO mhs (nim, nama, email, foto) VALUES ('$nim', '$nama', '$email', '$filefoto')";
             if (mysqli_query($koneksi, $sql)) {
                 echo "<script>
                         alert('Data berhasil ditambahkan!');
