@@ -7,25 +7,85 @@
 	<!-- Bootstrap lokal -->
     <link rel="stylesheet" href="bootstrap-5.1.3/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/styleku.css">
-	<!-- script src="bootstrap-5.3.0-alpha2-dist/jquery/3.3.1/jquery-3.3.1.js"></script -->
-	<!-- script src="bootstrap-5.3.0-alpha2-dist/js/bootstrap.js"></script -->
 	<script src="bootstrap-5.1.3/jquery/3.3.1/jquery-3.3.1.js"></script>
 	<script src="bootstrap-5.1.3/dist/js/bootstrap.js"></script>
+
+	<!-- Tambahkan style untuk menampilkan pesan kesalahan -->
+	<style>
+		.error {
+			color: red;
+			font-size: 0.9em;
+			display: none;
+		}
+	</style>
+
+	<!-- Tambahkan JavaScript untuk validasi real-time -->
+	<script>
+		// Fungsi untuk memvalidasi NIM
+		function validateNIM() {
+			var nim = document.getElementById("nim").value;
+			var errorMsg = "";
+
+			// Cek apakah NIM kosong
+			if (nim === "") {
+				errorMsg = "NIM tidak boleh kosong.";
+			}
+			// Cek apakah NIM kurang dari 14 karakter
+			else if (nim.length < 14) {
+				errorMsg = "NIM harus terdiri dari 14 karakter.";
+			}
+			
+
+			// Tampilkan pesan kesalahan jika ada
+			var errorElement = document.getElementById("nimError");
+			if (errorMsg !== "") {
+				errorElement.innerText = errorMsg;
+				errorElement.style.display = "block";
+				document.getElementById("nim").value = ""; // Kosongkan input NIM
+				document.getElementById("nim").focus(); // Kembalikan fokus ke input NIM
+				return false;
+			} else {
+				errorElement.style.display = "none"; // Sembunyikan pesan kesalahan jika valid
+				return true;
+			}
+		}
+
+		// Event listener untuk menangani enter key pada input NIM
+		function handleEnter(event) {
+			if (event.key === "Enter") {
+				// Cegah form untuk submit saat menekan Enter
+				event.preventDefault();
+				// Lakukan validasi NIM saat Enter ditekan
+				if (!validateNIM()) {
+					// Kosongkan NIM dan kembalikan fokus ke input NIM
+					document.getElementById("nim").value = ""; // Kosongkan input NIM
+					document.getElementById("nim").focus(); // Kembalikan fokus ke awal
+				}
+			}
+		}
+
+		// Tambahkan event listener untuk validasi ketika NIM di-enter atau pindah dari field
+		window.onload = function() {
+			document.getElementById("nim").addEventListener("blur", validateNIM); // Saat keluar dari input NIM
+			document.getElementById("nim").addEventListener("keypress", handleEnter); // Tangani Enter key
+			document.getElementById("nim").addEventListener("input", function() {
+				document.getElementById("nimError").style.display = "none"; // Sembunyikan pesan saat mengetik ulang
+			});
+		};
+	</script>
 </head>
 <body>
-	<?php
-	//require "head.html";
-	?>
 	<div class="utama">		
 		<br><br><br>		
 		<h3>TAMBAH DATA MAHASISWA</h3>
 		<div class="alert alert-success alert-dismissible" id="success" style="display:none;">
 	  		<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
 		</div>	
-		<form method="post" action="sv_addMhs.php" enctype="multipart/form-data">
+		<form method="post" action="sv_addMhs.php" enctype="multipart/form-data" onsubmit="return validateNIM()">
 			<div class="form-group">
 				<label for="nim">NIM:</label>
 				<input class="form-control" type="text" name="nim" id="nim" required>
+				<span id="nimError" class="error"> <!-- Pesan error untuk NIM akan ditampilkan di sini --> </span>
 			</div>
 			<div class="form-group">
 				<label for="nama">Nama:</label>

@@ -4,7 +4,7 @@
 require "fungsi.php";
 
 //memindahkan data kiriman dari form ke var biasa
-$nim=$_POST["nim"];
+$nim=$_POST["nim"] ;
 $nama=$_POST["nama"];
 $email=$_POST["email"];
 $uploadOk=1;
